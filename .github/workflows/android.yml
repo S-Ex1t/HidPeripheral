@@ -8,23 +8,18 @@ on:
 
 jobs:
   build:
-
-    runs-on: ubuntu-20.04
-
+    runs-on: ubuntu-latest
     steps:
-    - uses: actions/checkout@v4
-    - name: set up JDK 8
+    - name: Checkout sources
+      uses: actions/checkout@v4
+    - name: Setup Java
       uses: actions/setup-java@v4
       with:
-        java-version: '11'
         distribution: 'temurin'
-        cache: gradle
-
-    - name: Grant execute permission for gradlew
-      run: chmod +x gradlew
-    - name: setup gradle wrapper
-      run: gradle wrapper --gradle-version 7.2.1
-    - name: check dependencies
-      run: ./gradlew dependencies
+        java-version: 11
+    - name: Setup Gradle
+      uses: gradle/actions/setup-gradle@v4
+      with:
+        gradle-version: "7.2"
     - name: Build with Gradle
       run: ./gradlew build
