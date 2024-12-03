@@ -25,5 +25,8 @@ jobs:
       run: gradle wrapper
     - name: Build with Gradle
       run: ./gradlew build assembleRelease
-    - name: check apk
-      run: ls app/build/*
+    - name: Upload APK
+      uses: actions/upload-artifact@v2
+      with:
+        name: my-build-apk
+        path: ./**/*.apk
