@@ -24,4 +24,4 @@ jobs:
     - name: gradle wrapper
       run: gradle wrapper
     - name: Build with Gradle
-      run: ./gradlew build
+      run: ./gradlew build assembleRelease
