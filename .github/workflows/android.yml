@@ -24,5 +24,7 @@ jobs:
       run: chmod +x gradlew
     - name: setup gradle wrapper
       run: gradle wrapper
+    - name: check dependencies
+      run: ./gradlew dependencies
     - name: Build with Gradle
       run: ./gradlew build
