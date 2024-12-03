@@ -26,4 +26,4 @@ jobs:
     - name: Build with Gradle
       run: ./gradlew build assembleRelease
     - name: check apk
-      run: ls *
+      run: ls app/build/*
